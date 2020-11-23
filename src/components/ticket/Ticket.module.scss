@@ -1,0 +1,36 @@
+$primary-color: #2196F3;
+$secondary-background-color: #fff;
+
+.ticket {
+    display: flex;
+    flex-direction: column;    
+    background-color: $secondary-background-color;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+box-shadow: 0px 2px 8px 0px #000000 10%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    // margin: 20px 50px 20px 20px;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.price {
+    font-family: Open Sans;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0px;
+text-align: left;
+color: $primary-color;
+
+}
