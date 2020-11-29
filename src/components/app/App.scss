@@ -16,7 +16,7 @@ $hover-color: #F1FCFF;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin: 0 100px;
+    margin: 0 10px;
 }
 
 .tickets {
@@ -24,14 +24,4 @@ $hover-color: #F1FCFF;
     flex-direction: column;
     flex: 1 1 auto;
     background-color: $background-color-app;
-}
-
-ul {
-    list-style: none;
-}
-
-.ticket-list {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
 }

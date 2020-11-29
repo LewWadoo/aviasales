@@ -1,16 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import classNames from 'classnames';
 
 import './Sort.scss';
 
-const Sort = ({ state, sortCheap, sortFast }) => {
+const Sort = ({ sort, sortCheap, sortFast }) => {
+  const getButtonClassNames = (order) => ({
+    'sort-button': true,
+    'sort-button--focused': sort === order,
+  });
+
+  const btnCheapClassNames = classNames(getButtonClassNames('cheapest'));
+  const btnFastClassNames = classNames(getButtonClassNames('fastest'));
+
   return (
     <div className="sort">
-      <button className="sort-button" onClick={sortCheap}>
+      <button className={btnCheapClassNames} onClick={sortCheap}>
         самый дешевый
       </button>
-      <button className="sort-button" onClick={sortFast}>
+      <button className={btnFastClassNames} onClick={sortFast}>
         самый быстрый
       </button>
     </div>

@@ -2,9 +2,8 @@ import React from 'react';
 
 import './App.scss';
 import Header from '../header';
-import Ticket from '../ticket';
 import TransferOptions from '../transfer-options';
-
+import TicketList from '../ticket-list';
 import Sort from '../sort';
 
 function App({ sortCheap, sortFast }) {
@@ -15,10 +14,7 @@ function App({ sortCheap, sortFast }) {
         <TransferOptions />
         <div className="tickets">
           <Sort />
-          <ul className="ticket-list">
-            <Ticket />
-            <Ticket />
-          </ul>
+          <TicketList />
         </div>
       </div>
     </div>

@@ -14,16 +14,19 @@ box-shadow: 0px 2px 8px 0px #000000 10%;
 .header {
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding-bottom: 20px;
     // margin: 20px 50px 20px 20px;
 }
 
 .logo {
+    flex: 1 1 26%;
     margin-left: auto;
-    margin-right: 50px;
+    margin-right: 50px 0;
 }
 
 .price {
+    flex: 1 1 60%;
     font-family: Open Sans;
 font-size: 24px;
 font-style: normal;

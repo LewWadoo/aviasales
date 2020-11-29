@@ -1,18 +1,19 @@
+import {
+  REQUEST_SEARCH_ID,
+  RECIEVE_SEARCH_ID,
+  SORT,
+  TRANSFERS,
+  REQUEST_TICKETS,
+  RECIEVE_TICKETS,
+} from './actions.js';
+
 const sort = (state = {}, action) => {
   switch (action.type) {
-    case 'SORT':
+    case SORT:
       return action.order;
     default:
       return state;
   }
-};
-
-const initialTransfers = {
-  all: false,
-  none: false,
-  1: false,
-  2: false,
-  3: true,
 };
 
 const setAllTransfers = (isChecked) => {
@@ -25,10 +26,9 @@ const setAllTransfers = (isChecked) => {
   };
 };
 
-const shouldAllTransfersBeChecked = (transfers) => {
-  // eslint-disable-next-line no-console
-  console.log('in shouldAllTransfersBeChecked: transfers', transfers);
+const initialTransfers = setAllTransfers(false);
 
+const shouldAllTransfersBeChecked = (transfers) => {
   return transfers.none && transfers['1'] && transfers['2'] && transfers['3'];
 };
 
@@ -42,7 +42,7 @@ const controlAllCheckbox = (transfers) => {
 
 const transfer = (state = initialTransfers, action) => {
   switch (action.type) {
-    case 'TRANSFERS':
+    case TRANSFERS:
       switch (action.transfers) {
         case 'all':
           return setAllTransfers(!state.all);
@@ -59,10 +59,32 @@ const transfer = (state = initialTransfers, action) => {
   }
 };
 
+const search = (state = '', action) => {
+  switch (action.type) {
+    case REQUEST_SEARCH_ID:
+    case RECIEVE_SEARCH_ID:
+      return action.searchId;
+    default:
+      return state;
+  }
+};
+
+const getTickets = (state = [], action) => {
+  switch (action.type) {
+    case REQUEST_TICKETS:
+    case RECIEVE_TICKETS:
+      return action.tickets;
+    default:
+      return state;
+  }
+};
+
 const reducer = (state = {}, action) => {
   return {
     sort: sort(state.sort, action),
     transfers: transfer(state.transfers, action),
+    searchId: search(state.searchId, action),
+    tickets: getTickets(state.tickets, action),
   };
 };
 

@@ -24,22 +24,22 @@ $hover-color: #F1FCFF;
     border: 1px solid $primary-border-color;
     
     &:hover {
-	background-color: $hover-color;
-    border: 1px solid $hover-color;
+    // 	background-color: $hover-color;
+    // border: 1px solid $hover-color;
     cursor: pointer;
     }
 
-    &:focus {
+    // &:focus {
+    // }
+
+    &--focused {
 	background-color: $primary-color;
 	color: $secondary-background-color;
-    border: 1px solid $primary-color;
+	border: 1px solid $primary-color;
+    // 	&:hover {
+    // 	background-color: $hover-color;
+    // border: 1px solid $hover-color;
+    // cursor: pointer;
+    // 	}
     }
 }
-
-// .sort-button.left {
-//     border-radius: 6px 0px 0 6px;
-// }
-
-// .sort-button.right {
-//     border-radius: 0px 6px 6px 0;
-// }    
