@@ -26,7 +26,7 @@ const store = createStore(
 // const store = createStore(reducer);
 
 // eslint-disable-next-line no-console
-store.subscribe(() => console.log(store.getState()));
+// store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>

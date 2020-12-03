@@ -11,8 +11,8 @@ const Sort = ({ sort, sortCheap, sortFast }) => {
     'sort-button--focused': sort === order,
   });
 
-  const btnCheapClassNames = classNames(getButtonClassNames('cheapest'));
-  const btnFastClassNames = classNames(getButtonClassNames('fastest'));
+  const btnCheapClassNames = classNames(getButtonClassNames(actions.SORT_CHEAPEST_FIRST));
+  const btnFastClassNames = classNames(getButtonClassNames(actions.SORT_FASTEST_FIRST));
 
   return (
     <div className="sort">

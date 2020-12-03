@@ -1,23 +1,21 @@
 $distance-checkbox-text: 50px;
 $hover-color: #F1FCFF;
 
-
 .checkbox {
     font-family: Open Sans;
-font-size: 13px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px;
-letter-spacing: 0px;
-text-align: left;
-padding: 10px 20px 10px $distance-checkbox-text;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    padding: 10px 20px 10px $distance-checkbox-text;
 
-&:hover, &:focus {
-    background-color: $hover-color;
-    cursor: pointer;
+    &:hover, &:focus {
+	background-color: $hover-color;
+	cursor: pointer;
+    }
 }
-}
-
 
 .checkbox-input {
     position: absolute;
