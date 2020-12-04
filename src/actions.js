@@ -17,20 +17,21 @@ export function receiveSearchId(result) {
 export function fetchSearchId() {
   return function (dispatch) {
     dispatch(requestSearchId());
-    return fetch(`https:front-test.beta.aviasales.ru/search`)
+    // return fetch(`https://front-test.beta.aviasales.ru/search`)
+    return fetch(`https://aviasales-test-api.java-mentor.com/search`)
       .then((response) => {
         if (response.ok) {
           return response.json();
         }
 
-        throw new Error('Очередной ложный статус: ' + response.status);
+        throw new Error('Статус ответа от сервера: ' + response.status);
       })
       .then((result) => {
         dispatch(receiveSearchId(result));
         return result;
       })
       .catch((error) => {
-        return dispatch(receiveError(error));
+        return dispatch(receiveError(error.message));
       });
   };
 }
@@ -55,28 +56,48 @@ export const RECEIVE_ERROR = 'RECEIVE_ERROR';
 export function receiveError(error) {
   return {
     type: RECEIVE_ERROR,
-    error: error,
+    error,
+  };
+}
+
+export const IGNORE_ERROR = 'IGNORE_ERROR';
+export function ignoreError() {
+  return {
+    type: IGNORE_ERROR,
   };
 }
 
 export function fetchTickets(searchId) {
   return function (dispatch) {
     dispatch(requestTickets());
-    return fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
+    return (
+      fetch(`https://aviasales-test-api.java-mentor.com/tickets?searchId=${searchId}`)
+        // return fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`)
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
 
-        throw new Error('Очередной ложный статус: ' + response.status);
-      })
-      .then((result) => {
-        dispatch(receiveTickets(result));
-        return result;
-      })
-      .catch((error) => {
-        return dispatch(receiveError(error));
-      });
+          throw new Error('Статус ответа от сервера: ' + response.status);
+        })
+        .then((result) => {
+          dispatch(receiveTickets(result));
+          return result;
+        })
+        .catch((error) => {
+          return dispatch(receiveError(error.message));
+        })
+    );
+  };
+}
+
+export function fetchTicketsTillStop(searchId) {
+  return async function (dispatch) {
+    let stop = false;
+    while (!stop) {
+      const result = await fetchTickets(searchId);
+      stop = await result.stop;
+    }
   };
 }
 
@@ -132,39 +153,3 @@ export function transfers3() {
     transfers: 3,
   };
 }
-
-// export const TRANSFERS = 'TRANSFERS';
-// export function transfersAll() {
-//   return {
-//     type: TRANSFERS,
-//     transfers: 'all',
-//   };
-// }
-
-// export function transfersNone() {
-//   return {
-//     type: TRANSFERS,
-//     transfers: 'none',
-//   };
-// }
-
-// export function transfers1() {
-//   return {
-//     type: TRANSFERS,
-//     transfers: '1',
-//   };
-// }
-
-// export function transfers2() {
-//   return {
-//     type: TRANSFERS,
-//     transfers: '2',
-//   };
-// }
-
-// export function transfers3() {
-//   return {
-//     type: TRANSFERS,
-//     transfers: '3',
-//   };
-// }

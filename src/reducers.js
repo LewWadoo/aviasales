@@ -8,6 +8,7 @@ import {
   REQUEST_TICKETS,
   RECEIVE_TICKETS,
   RECEIVE_ERROR,
+  IGNORE_ERROR,
 } from './actions.js';
 
 const sort = (state = {}, action) => {
@@ -29,27 +30,11 @@ const setAllTransfers = (isChecked) => {
 
 const initialTransfers = setAllTransfers(false);
 
-// const setAllTransfers = (isChecked) => {
-//   return {
-//     all: isChecked,
-//     none: isChecked,
-//     1: isChecked,
-//     2: isChecked,
-//     3: isChecked,
-//   };
-// };
-
-// const initialTransfers = setAllTransfers(false);
-
 const shouldAllTransfersBeChecked = (transfers) => {
   return (
     transfers.includes(0) && transfers.includes(1) && transfers.includes(2) && transfers.includes(3)
   );
 };
-
-// const shouldAllTransfersBeChecked = (transfers) => {
-//   return transfers.none && transfers['1'] && transfers['2'] && transfers['3'];
-// };
 
 const controlAllCheckbox = (transfers) => {
   if (shouldAllTransfersBeChecked(transfers)) {
@@ -58,14 +43,6 @@ const controlAllCheckbox = (transfers) => {
 
   return removeTransfer(transfers, -1);
 };
-
-// const controlAllCheckbox = (transfers) => {
-//   if (shouldAllTransfersBeChecked(transfers)) {
-//     return setAllTransfers(true);
-//   }
-
-//   return { ...transfers, all: false };
-// };
 
 const removeTransfer = (transfers, transfer) => {
   const index = transfers.indexOf(transfer);
@@ -102,25 +79,6 @@ const transfers = (state = initialTransfers, action) => {
       return state;
   }
 };
-
-// const transfers = (state = initialTransfers, action) => {
-//   switch (action.type) {
-//     case TRANSFERS:
-//       switch (action.transfers) {
-//         case 'all':
-//           return setAllTransfers(!state.all);
-//         case 'none':
-//         case '1':
-//         case '2':
-//         case '3':
-//           return controlAllCheckbox({ ...state, [action.transfers]: !state[action.transfers] });
-//         default:
-//           return state;
-//       }
-//     default:
-//       return state;
-//   }
-// };
 
 const searchId = (state = '', action) => {
   switch (action.type) {
@@ -174,6 +132,9 @@ const error = (state = null, action) => {
       return null;
     case RECEIVE_ERROR:
       return action.error;
+    case IGNORE_ERROR:
+      return null;
+
     default:
       return state;
   }

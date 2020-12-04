@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Alert } from 'antd';
 
 import * as actions from '../../actions';
-import { getSearchId, getTickets, getSort, getTransfers } from '../../reducers';
+import { getSearchId, getTickets, getSort, getTransfers, getError, getStop } from '../../reducers';
 
 import './Ticket-list.scss';
 import 'antd/dist/antd.css';
@@ -43,18 +43,22 @@ class TicketList extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    const { searchId, fetchSearchId, fetchTickets } = this.props;
+  componentDidMount() {
+    const { searchId, fetchSearchId } = this.props;
 
     if (!searchId) {
-      const newSearchIdObject = await fetchSearchId();
-      const newSearchId = newSearchIdObject.searchId;
-      let stop = false;
+      fetchSearchId();
+    }
+  }
 
-      while (!stop) {
-        const result = await fetchTickets(newSearchId);
-        stop = result.stop;
-      }
+  componentDidUpdate() {
+    const { searchId, stop, error, fetchSearchId, fetchTickets } = this.props;
+    if (!searchId) {
+      fetchSearchId();
+    }
+
+    if (!stop && !error) {
+      fetchTickets(searchId);
     }
   }
 
@@ -84,6 +88,8 @@ const mapStateToProps = (state) => {
     searchId: getSearchId(state),
     sort: getSort(state),
     transfers: getTransfers(state),
+    error: getError(state),
+    stop: getStop(state),
   };
 };
 
