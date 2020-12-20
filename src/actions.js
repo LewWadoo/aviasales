@@ -17,7 +17,6 @@ export function receiveSearchId(result) {
 export function fetchSearchId() {
   return function (dispatch) {
     dispatch(requestSearchId());
-    // return fetch(`https://front-test.beta.aviasales.ru/search`)
     return fetch(`https://aviasales-test-api.java-mentor.com/search`)
       .then((response) => {
         if (response.ok) {
@@ -70,24 +69,21 @@ export function ignoreError() {
 export function fetchTickets(searchId) {
   return function (dispatch) {
     dispatch(requestTickets());
-    return (
-      fetch(`https://aviasales-test-api.java-mentor.com/tickets?searchId=${searchId}`)
-        // return fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
+    return fetch(`https://aviasales-test-api.java-mentor.com/tickets?searchId=${searchId}`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
 
-          throw new Error('Статус ответа от сервера: ' + response.status);
-        })
-        .then((result) => {
-          dispatch(receiveTickets(result));
-          return result;
-        })
-        .catch((error) => {
-          return dispatch(receiveError(error.message));
-        })
-    );
+        throw new Error('Статус ответа от сервера: ' + response.status);
+      })
+      .then((result) => {
+        dispatch(receiveTickets(result));
+        return result;
+      })
+      .catch((error) => {
+        return dispatch(receiveError(error.message));
+      });
   };
 }
 
