@@ -119,35 +119,35 @@ export function sortFast() {
 }
 
 export const TRANSFERS = 'TRANSFERS';
-export function transfersAll() {
+export function allTransfers() {
   return {
     type: TRANSFERS,
     transfers: -1,
   };
 }
 
-export function transfersNone() {
+export function noneTransfers() {
   return {
     type: TRANSFERS,
     transfers: 0,
   };
 }
 
-export function transfers1() {
+export function oneTransfer() {
   return {
     type: TRANSFERS,
     transfers: 1,
   };
 }
 
-export function transfers2() {
+export function twoTransfers() {
   return {
     type: TRANSFERS,
     transfers: 2,
   };
 }
 
-export function transfers3() {
+export function threeTransfers() {
   return {
     type: TRANSFERS,
     transfers: 3,

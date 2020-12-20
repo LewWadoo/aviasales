@@ -1,23 +1,20 @@
-$primary-color: #2196F3;
-$primary-text-color: #4A4A4A;
-$primary-border-color: #DFE5EC;
-$secondary-background-color: #fff;
-$hover-color: #F1FCFF;
+@import "../../variables.scss";
+
+$padding-vertical: 15px;
 
 .sort {
     display: flex;
     flex-direction: row;
     justify-content: stretch;
-    margin: 0 20px;
-    border-radius: 5px;
+    border-radius: $border-radius;
     overflow: hidden;
 }
 
 .sort-button {
-    font-family: 'Open Sans';
+    font-family: $font-family;
     text-transform: uppercase;
     flex: 1 1 auto;
-    padding: 15px;
+    padding: $padding-vertical;
     outline: none;
     background-color: $secondary-background-color;
     color: $primary-text-color;

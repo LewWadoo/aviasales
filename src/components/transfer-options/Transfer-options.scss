@@ -1,24 +1,30 @@
-$secondary-background-color: #fff;
+@import "../../variables.scss";
 
 .transfer-options {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     background-color: $secondary-background-color;
-    padding: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    padding: ($padding / 2) 0;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    margin-right: $margin;
+
+    @media screen and (max-width: $mobile-max-width) {
+	margin-right: 0;
+    	margin-bottom: $margin;
+    }
 }
 
 .transfer-options-title {
     text-transform: uppercase;
-    font-family: Open Sans;
-    font-size: 12px;
+    font-family: $font-family;
+    font-size: $font-size-title;
     font-style: normal;
     font-weight: 600;
     line-height: 12px;
     letter-spacing: 0.5px;
     text-align: left;
     margin: 0;
-    padding: 0 20px 10px 20px;
+    padding: ($padding / 2) $padding;
 }

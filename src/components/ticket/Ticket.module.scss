@@ -1,22 +1,20 @@
-$primary-color: #2196F3;
-$secondary-background-color: #fff;
+@import "../../variables.scss";
 
 .ticket {
     display: flex;
     flex-direction: column;    
     background-color: $secondary-background-color;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    margin: $margin 0 0 0;
+    padding: $padding;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
 }
 
 .header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 20px;
-    // margin: 20px 50px 20px 20px;
+    padding-bottom: $padding;
 }
 
 .logo {
@@ -27,7 +25,7 @@ $secondary-background-color: #fff;
 
 .price {
     flex: 1 1 60%;
-    font-family: Open Sans;
+    font-family: $font-family;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -35,5 +33,4 @@ $secondary-background-color: #fff;
     letter-spacing: 0px;
     text-align: left;
     color: $primary-color;
-
 }

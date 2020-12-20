@@ -1,22 +1,26 @@
-$background-color-app: #F3F7FA;
-$primary-color: #2196F3;
-$primary-text-color: #4A4A4A;
-$primary-border-color: #DFE5EC;
-$secondary-background-color: #fff;
-$hover-color: #F1FCFF;
+@import "../../variables.scss";
 
 .App {
     text-align: center;
     display: flex;
     flex-direction: column;
     background-color: $background-color-app;
+    max-width: 960px;
+    padding: 50px 100px;
+    @media screen and (max-width: $mobile-max-width) {
+	padding: $padding;
+    }
 }
 
 .main {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin: 0 10px;
+
+    @media screen and (max-width: $mobile-max-width) {
+	flex-direction: column;
+	align-items: center;
+    }
 }
 
 .tickets {
@@ -24,4 +28,7 @@ $hover-color: #F1FCFF;
     flex-direction: column;
     flex: 1 1 auto;
     background-color: $background-color-app;
+    @media screen and (max-width: $mobile-max-width) {
+
+    }
 }

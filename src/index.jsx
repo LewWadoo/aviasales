@@ -7,13 +7,10 @@ import thunkMiddleware from 'redux-thunk';
 import App from './components/app';
 import './index.css';
 
-import reducer from './reducers';
+import reducer from './reducers/reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
-
-// eslint-disable-next-line no-debugger
-debugger;
 
 ReactDOM.render(
   <Provider store={store}>
