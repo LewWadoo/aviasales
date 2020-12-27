@@ -1,4 +1,9 @@
-import { RECEIVE_SEARCH_ID, RECEIVE_TICKETS, RECEIVE_ERROR, IGNORE_ERROR } from '../../actions.js';
+import {
+  RECEIVE_SEARCH_ID,
+  RECEIVE_TICKETS,
+  RECEIVE_ERROR,
+  IGNORE_ERROR,
+} from '../../action-types.js';
 
 export const error = (state = null, action) => {
   switch (action.type) {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Alert } from 'antd';
 
 import * as actions from '../../actions';
+import { SORT_CHEAPEST_FIRST, SORT_FASTEST_FIRST } from '../../action-types.js';
 import { getSearchId, getTickets, getSort, getTransfers, getStop } from '../../reducers/reducer';
 
 import './Ticket-list.scss';
@@ -16,10 +17,10 @@ class TicketList extends React.Component {
 
     this.sortTickets = (tickets, sort) => {
       switch (sort) {
-        case actions.SORT_CHEAPEST_FIRST:
+        case SORT_CHEAPEST_FIRST:
           tickets.sort((ticketPrev, ticketNext) => ticketPrev.price - ticketNext.price);
           break;
-        case actions.SORT_FASTEST_FIRST:
+        case SORT_FASTEST_FIRST:
           tickets.sort(
             (ticketPrev, ticketNext) =>
               ticketPrev.segments.reduce((total, next) => ({

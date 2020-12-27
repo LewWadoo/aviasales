@@ -1,4 +1,16 @@
-export const REQUEST_SEARCH_ID = 'REQUEST_SEARCH_ID';
+import {
+  REQUEST_SEARCH_ID,
+  RECEIVE_SEARCH_ID,
+  REQUEST_TICKETS,
+  RECEIVE_TICKETS,
+  RECEIVE_ERROR,
+  IGNORE_ERROR,
+  SORT,
+  SORT_CHEAPEST_FIRST,
+  SORT_FASTEST_FIRST,
+  TRANSFERS,
+} from './action-types.js';
+
 export function requestSearchId() {
   return {
     type: REQUEST_SEARCH_ID,
@@ -6,7 +18,6 @@ export function requestSearchId() {
   };
 }
 
-export const RECEIVE_SEARCH_ID = 'RECEIVE_SEARCH_ID';
 export function receiveSearchId(result) {
   return {
     type: RECEIVE_SEARCH_ID,
@@ -35,14 +46,12 @@ export function fetchSearchId() {
   };
 }
 
-export const REQUEST_TICKETS = 'REQUEST_TICKETS';
 export function requestTickets() {
   return {
     type: REQUEST_TICKETS,
   };
 }
 
-export const RECEIVE_TICKETS = 'RECEIVE_TICKETS';
 export function receiveTickets(result) {
   return {
     type: RECEIVE_TICKETS,
@@ -51,7 +60,6 @@ export function receiveTickets(result) {
   };
 }
 
-export const RECEIVE_ERROR = 'RECEIVE_ERROR';
 export function receiveError(error) {
   return {
     type: RECEIVE_ERROR,
@@ -59,7 +67,6 @@ export function receiveError(error) {
   };
 }
 
-export const IGNORE_ERROR = 'IGNORE_ERROR';
 export function ignoreError() {
   return {
     type: IGNORE_ERROR,
@@ -97,8 +104,6 @@ export function fetchTicketsTillStop(searchId) {
   };
 }
 
-export const SORT = 'SORT';
-export const SORT_CHEAPEST_FIRST = 'SORT_CHEAPEST_FIRST';
 export function sortCheap() {
   return {
     type: SORT,
@@ -106,7 +111,6 @@ export function sortCheap() {
   };
 }
 
-export const SORT_FASTEST_FIRST = 'SORT_FASTEST_FIRST';
 export function sortFast() {
   return {
     type: SORT,
@@ -114,7 +118,6 @@ export function sortFast() {
   };
 }
 
-export const TRANSFERS = 'TRANSFERS';
 export function allTransfers() {
   return {
     type: TRANSFERS,

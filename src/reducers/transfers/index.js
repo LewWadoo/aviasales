@@ -1,4 +1,4 @@
-import { TRANSFERS } from '../../actions.js';
+import { TRANSFERS } from '../../action-types.js';
 
 const setAllTransfers = (isChecked) => {
   if (isChecked) {

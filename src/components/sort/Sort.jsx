@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { SORT_CHEAPEST_FIRST, SORT_FASTEST_FIRST } from '../../action-types.js';
 import classNames from 'classnames';
 
 import './Sort.scss';
@@ -11,8 +12,8 @@ const Sort = ({ sort, sortCheap, sortFast }) => {
     'sort-button--focused': sort === order,
   });
 
-  const btnCheapClassNames = classNames(getButtonClassNames(actions.SORT_CHEAPEST_FIRST));
-  const btnFastClassNames = classNames(getButtonClassNames(actions.SORT_FASTEST_FIRST));
+  const btnCheapClassNames = classNames(getButtonClassNames(SORT_CHEAPEST_FIRST));
+  const btnFastClassNames = classNames(getButtonClassNames(SORT_FASTEST_FIRST));
 
   return (
     <div className="sort">

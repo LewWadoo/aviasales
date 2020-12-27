@@ -1,4 +1,4 @@
-import { REQUEST_SEARCH_ID, RECEIVE_SEARCH_ID } from '../../actions.js';
+import { REQUEST_SEARCH_ID, RECEIVE_SEARCH_ID } from '../../action-types.js';
 
 export const searchId = (state = '', action) => {
   switch (action.type) {

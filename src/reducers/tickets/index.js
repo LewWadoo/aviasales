@@ -1,4 +1,4 @@
-import { RECEIVE_TICKETS } from '../../actions.js';
+import { RECEIVE_TICKETS } from '../../action-types.js';
 
 export const tickets = (state = [], action) => {
   switch (action.type) {

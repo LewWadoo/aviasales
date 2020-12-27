@@ -3,7 +3,7 @@ import {
   REQUEST_TICKETS,
   RECEIVE_TICKETS,
   RECEIVE_ERROR,
-} from '../../actions.js';
+} from '../../action-types.js';
 
 export const stop = (state = false, action) => {
   switch (action.type) {
