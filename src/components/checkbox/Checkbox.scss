@@ -1,23 +1,24 @@
-$distance-checkbox-text: 50px;
-$hover-color: #F1FCFF;
+@import "../../variables.scss";
 
+$distance-checkbox-text: 50px;
+$padding-vertical: 10px;
+$size: 20px;
 
 .checkbox {
-    font-family: Open Sans;
-font-size: 13px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px;
-letter-spacing: 0px;
-text-align: left;
-// margin: 20px 0 0.25em;
-padding: 10px 20px 10px $distance-checkbox-text;
+    font-family: $font-family;
+    font-size: $font-size-md;
+    font-style: normal;
+    font-weight: 400;
+    line-height: $line-height-md;
+    letter-spacing: 0px;
+    text-align: left;
+    padding: $padding-vertical $padding $padding-vertical $distance-checkbox-text;
 
-&:hover, &:focus {
-background-color: $hover-color;
+    &:hover, &:focus {
+	background-color: $hover-color;
+	cursor: pointer;
+    }
 }
-}
-
 
 .checkbox-input {
     position: absolute;
@@ -28,11 +29,11 @@ background-color: $hover-color;
 
 .checkbox-custom {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: $size;
+    height: $size;
     background-image: url('./checkbox-enabled-unchecked.svg');
     background-size: contain;
-    margin-left: -30px;
+    margin-left: (-$distance-checkbox-text + $size);
 }
 
 .checkbox-input:checked + .checkbox-custom {
